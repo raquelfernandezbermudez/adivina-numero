@@ -22,7 +22,7 @@ initData()
 function initData() {
   score = INITIAL_SCORE
   scoreField.textContent = score
-  highscore = highscore || 0
+  highscore = Number(localStorage.getItem('highscore')) || 0
   number = Math.trunc(Math.random() * MAX_NUMBER) + 1
   console.log(number, '*******************************************')
 }
@@ -49,6 +49,7 @@ function checkNumber() {
       //guardamos el valor en el localStorage y highscoreField con el localStorage
       //si no hay highscore en el localStorage lo seteamos en 0
       //highscrore tiene que ser number
+      localStorage.setItem('highscore', highscore)
     }
   } else {
     if (score > 1) {
